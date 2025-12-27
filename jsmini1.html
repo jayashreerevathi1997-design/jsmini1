@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Mini Projects</title>
+    <link rel="stylesheet" href="jsmini1.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- ========== PROJECT 1: FOOD ORDERING ========== -->
+        <div class="project-section">
+            <h1>🍔 Mini Project 1: Online Food Ordering System</h1>
+
+            <!-- Order Form Card -->
+            <div class="card">
+                <h2>Create New Order</h2>
+                <div class="form-group">
+                    <label>Restaurant Name (String):</label>
+                    <input type="text" id="restaurantName" placeholder="Enter restaurant name" value="Pizza Palace">
+                </div>
+                <div class="form-group">
+                    <label>Order Number (Number):</label>
+                    <input type="number" id="orderNumber" placeholder="Enter order number" value="1001">
+                </div>
+                <div class="form-group">
+                    <label>Add Food Item to Array:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="foodItem" placeholder="Enter food item">
+                        <input type="number" id="itemPrice" placeholder="Price" style="width: 100px;">
+                        <button class="btn btn-primary" onclick="addItem()">Add</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Current Items (Array):</label>
+                    <div class="items-list" id="itemsList"></div>
+                </div>
+            </div>
+
+            <!-- Order Summary Card -->
+            <div class="card">
+                <h2>Order Summary</h2>
+                <button class="btn btn-info" onclick="displayOrderSummary()">Display Order Details</button>
+                <button class="btn btn-success" onclick="updateDeliveryStatus()">Mark as Delivered</button>
+                <button class="btn btn-danger" onclick="resetOrder()">Reset Order</button>
+
+                <div class="order-summary" id="orderSummary">
+                    <p><em>Click "Display Order Details" to see the summary</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PROJECT 2: QUIZ SYSTEM ========== -->
+        <div class="project-section">
+            <h1>📝 Mini Project 2: Online Quiz System</h1>
+
+            <!-- Quiz Info Card -->
+            <div class="card">
+                <div class="quiz-header">
+                    <span id="questionCounter">Question 1 of 5</span>
+                    <span id="scoreDisplay">Score: 0</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="card" id="quizCard">
+                <h2 id="questionText">Loading question...</h2>
+                <div class="options-container" id="optionsContainer"></div>
+                <button class="btn btn-quiz" id="nextBtn" onclick="nextQuestion()" disabled>Next Question</button>
+            </div>
+
+            <!-- Results Card -->
+            <div class="card" id="resultsCard" style="display: none;">
+                <h2>Quiz Completed!</h2>
+                <div class="results-summary">
+                    <div class="score-circle" id="finalScore">0%</div>
+                    <p id="resultMessage">Your performance message</p>
+                </div>
+                <div class="results-details" id="resultsDetails"></div>
+                <button class="btn btn-success" onclick="restartQuiz()">Restart Quiz</button>
+            </div>
+        </div>
+
+        <!-- ========== PROJECT 3: E-COMMERCE SHOPPING CART ========== -->
+        <div class="project-section">
+            <h1>🛒 Mini Project 3: E-Commerce Shopping Cart</h1>
+
+            <!-- Products Card -->
+            <div class="card">
+                <h2>Available Products</h2>
+                <div class="products-grid" id="productsGrid"></div>
+            </div>
+
+            <!-- Cart Card -->
+            <div class="card">
+                <h2>Shopping Cart <span id="cartCount" class="cart-count">0</span></h2>
+                <div id="cartItems" class="cart-items">
+                    <p><em>Your cart is empty</em></p>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (18% GST):</span>
+                        <span id="tax">₹0.00</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Total:</span>
+                        <span id="cartTotal">₹0.00</span>
+                    </div>
+                    <button class="btn btn-success" onclick="checkout()">Proceed to Checkout</button>
+                    <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PROJECT 4: FOOD ORDERING V2 ========== -->
+        <div class="project-section">
+            <h1>🍕 Mini Project 4: Online Food Ordering System</h1>
+
+            <div class="food-ordering-container">
+                <!-- Menu Section -->
+                <div class="card">
+                    <h2>Menu - Tasty Bites</h2>
+                    <div class="menu-grid" id="menuGrid"></div>
+                </div>
+
+                <!-- Order Section -->
+                <div class="card">
+                    <h2>Your Order <span id="foodOrderCount" class="cart-count">0</span></h2>
+                    <div id="foodOrderItems" class="food-order-items">
+                        <p class="empty-order">No items in order</p>
+                    </div>
+                    <div id="foodOrderSummary" class="food-order-summary" style="display: none;">
+                        <div class="food-total-row">
+                            <strong>Total:</strong>
+                            <strong id="foodTotalPrice">₹0</strong>
+                        </div>
+                        <div class="food-order-buttons">
+                            <button class="btn btn-success" onclick="placeFoodOrder()">Place Order</button>
+                            <button class="btn btn-info" onclick="markFoodDelivered()">Mark Delivered</button>
+                            <button class="btn btn-danger" onclick="resetFoodOrder()">Reset</button>
+                        </div>
+                    </div>
+                    <div id="foodOrderDetails" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== PROJECT 5: STUDENT GRADE CALCULATOR ========== -->
+        <div class="project-section">
+            <h1>📚 Mini Project 5: Student Grade Calculator</h1>
+
+            <!-- Input Card -->
+            <div class="card">
+                <h2>Enter Student Details</h2>
+                <div class="form-group">
+                    <label>Student Name (String):</label>
+                    <input type="text" id="studentName" placeholder="Enter student name">
+                </div>
+                <div class="subjects-input">
+                    <label>Subject Marks (Number):</label>
+                    <div class="marks-grid">
+                        <div class="mark-input">
+                            <label>Math</label>
+                            <input type="number" id="mark1" placeholder="0-100" min="0" max="100">
+                        </div>
+                        <div class="mark-input">
+                            <label>Science</label>
+                            <input type="number" id="mark2" placeholder="0-100" min="0" max="100">
+                        </div>
+                        <div class="mark-input">
+                            <label>English</label>
+                            <input type="number" id="mark3" placeholder="0-100" min="0" max="100">
+                        </div>
+                        <div class="mark-input">
+                            <label>History</label>
+                            <input type="number" id="mark4" placeholder="0-100" min="0" max="100">
+                        </div>
+                        <div class="mark-input">
+                            <label>Computer</label>
+                            <input type="number" id="mark5" placeholder="0-100" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="calculateGrade()">Calculate Grade</button>
+                <button class="btn btn-danger" onclick="resetGradeCalculator()">Reset</button>
+            </div>
+
+            <!-- Result Card -->
+            <div class="card" id="gradeResultCard" style="display: none;">
+                <h2>Grade Report</h2>
+                <div id="gradeReport" class="grade-report"></div>
+            </div>
+        </div>
+
+        <!-- ========== PROJECT 6: SIMPLE INTEREST CALCULATOR ========== -->
+        <div class="project-section">
+            <h1>💰 Mini Project 6: Simple Interest Calculator</h1>
+
+            <!-- Calculator Card -->
+            <div class="card">
+                <h2>Calculate Simple Interest</h2>
+                <div class="si-calculator">
+                    <div class="si-input-group">
+                        <div class="si-input">
+                            <label>Principal Amount (₹)</label>
+                            <input type="number" id="principal" placeholder="Enter principal" min="0">
+                            <span class="input-icon">💵</span>
+                        </div>
+                        <div class="si-input">
+                            <label>Rate of Interest (%)</label>
+                            <input type="number" id="rate" placeholder="Enter rate" min="0" step="0.1">
+                            <span class="input-icon">📊</span>
+                        </div>
+                        <div class="si-input">
+                            <label>Time Period (Years)</label>
+                            <input type="number" id="time" placeholder="Enter time" min="0" step="0.5">
+                            <span class="input-icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="si-buttons">
+                        <button class="btn btn-primary" onclick="calculateSI()">Calculate Interest</button>
+                        <button class="btn btn-info" onclick="calculateWithPrompt()">Use Prompt/Alert</button>
+                        <button class="btn btn-danger" onclick="resetSICalculator()">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Card -->
+            <div class="card" id="siResultCard" style="display: none;">
+                <h2>Calculation Result</h2>
+                <div id="siResult" class="si-result"></div>
+            </div>
+
+            <!-- Formula Card -->
+            <div class="card">
+                <h2>Formula</h2>
+                <div class="formula-box">
+                    <p><strong>Simple Interest (SI)</strong> = (P × R × T) / 100</p>
+                    <p><strong>Total Amount (A)</strong> = P + SI</p>
+                    <div class="formula-legend">
+                        <span>P = Principal</span>
+                        <span>R = Rate (%)</span>
+                        <span>T = Time (Years)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================
+        // PROJECT 1: ONLINE FOOD ORDERING SYSTEM
+        // Demonstrating: String, Number, Array, Boolean
+        // ============================================
+
+        let order = {
+            restaurantName: "Pizza Palace",    // String
+            orderNumber: 1001,                  // Number
+            items: [],                          // Array of objects
+            totalPrice: 0,                      // Number
+            isDelivered: false                  // Boolean
+        };
+
+        function addItem() {
+            let itemName = document.getElementById('foodItem').value;
+            let itemPrice = parseFloat(document.getElementById('itemPrice').value);
+
+            if (itemName && itemPrice) {
+                order.items.push({
+                    name: itemName,
+                    price: itemPrice
+                });
+                order.totalPrice += itemPrice;
+                document.getElementById('foodItem').value = '';
+                document.getElementById('itemPrice').value = '';
+                updateItemsDisplay();
+            } else {
+                alert('Please enter both item name and price!');
+            }
+        }
+
+        function removeItem(index) {
+            let removedItem = order.items[index];
+            order.totalPrice -= removedItem.price;
+            order.items.splice(index, 1);
+            updateItemsDisplay();
+        }
+
+        function updateItemsDisplay() {
+            let itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = '';
+            order.items.forEach((item, index) => {
+                itemsList.innerHTML += `
+                    <div class="item-tag">
+                        ${item.name} - ₹${item.price}
+                        <span onclick="removeItem(${index})">✕</span>
+                    </div>
+                `;
+            });
+        }
+
+        function displayOrderSummary() {
+            order.restaurantName = document.getElementById('restaurantName').value;
+            order.orderNumber = parseInt(document.getElementById('orderNumber').value);
+            let statusClass = order.isDelivered ? 'status-delivered' : 'status-pending';
+            let statusText = order.isDelivered ? '✅ Delivered' : '⏳ Pending';
+            let itemsHtml = order.items.map(item => `${item.name} - ₹${item.price}`).join('<br>');
+            if (itemsHtml === '') itemsHtml = 'No items added';
+
+            document.getElementById('orderSummary').innerHTML = `
+                <p><strong>Restaurant Name (String):</strong> ${order.restaurantName}</p>
+                <p><strong>Order Number (Number):</strong> #${order.orderNumber}</p>
+                <p><strong>Food Items (Array):</strong><br>${itemsHtml}</p>
+                <p class="total-price"><strong>Total Price (Number):</strong> ₹${order.totalPrice.toFixed(2)}</p>
+                <p><strong>Delivery Status (Boolean):</strong> <span class="${statusClass}">${statusText}</span></p>
+            `;
+        }
+
+        function updateDeliveryStatus() {
+            if (!order.isDelivered) {
+                order.isDelivered = true;
+                displayOrderSummary();
+                alert('🎉 Order marked as delivered!');
+            } else {
+                alert('Order is already delivered!');
+            }
+        }
+
+        function resetOrder() {
+            order = {
+                restaurantName: "Pizza Palace",
+                orderNumber: Math.floor(1000 + Math.random() * 9000),
+                items: [],
+                totalPrice: 0,
+                isDelivered: false
+            };
+            document.getElementById('restaurantName').value = order.restaurantName;
+            document.getElementById('orderNumber').value = order.orderNumber;
+            document.getElementById('itemsList').innerHTML = '';
+            document.getElementById('orderSummary').innerHTML = '<p><em>Order reset. Add new items!</em></p>';
+        }
+
+        // ============================================
+        // PROJECT 2: ONLINE QUIZ SYSTEM
+        // Demonstrating: Arrays, Objects, Boolean validation
+        // ============================================
+
+        let quizQuestions = [
+            {
+                question: "What does HTML stand for?",
+                options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
+                correctAnswer: 0,
+                userAnswer: null
+            },
+            {
+                question: "Which company developed JavaScript?",
+                options: ["Microsoft", "Netscape", "Google", "Apple"],
+                correctAnswer: 1,
+                userAnswer: null
+            },
+            {
+                question: "What does CSS stand for?",
+                options: ["Computer Style Sheets", "Creative Style System", "Cascading Style Sheets", "Colorful Style Sheets"],
+                correctAnswer: 2,
+                userAnswer: null
+            },
+            {
+                question: "Which symbol is used for comments in JavaScript?",
+                options: ["<!-- -->", "/* */", "# #", "** **"],
+                correctAnswer: 1,
+                userAnswer: null
+            },
+            {
+                question: "What is the correct way to declare a variable in JavaScript?",
+                options: ["variable x = 5", "var x = 5", "v x = 5", "declare x = 5"],
+                correctAnswer: 1,
+                userAnswer: null
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let quizCompleted = false;
+
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            quizCompleted = false;
+            quizQuestions.forEach(q => q.userAnswer = null);
+            document.getElementById('quizCard').style.display = 'block';
+            document.getElementById('resultsCard').style.display = 'none';
+            document.getElementById('scoreDisplay').textContent = 'Score: 0';
+            displayQuestion();
+            updateProgress();
+        }
+
+        function displayQuestion() {
+            let currentQuestion = quizQuestions[currentQuestionIndex];
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestionIndex + 1} of ${quizQuestions.length}`;
+            document.getElementById('questionText').textContent = currentQuestion.question;
+
+            let optionsHTML = '';
+            currentQuestion.options.forEach((option, index) => {
+                optionsHTML += `
+                    <div class="option" onclick="selectOption(${index})" id="option${index}">
+                        <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                        <span class="option-text">${option}</span>
+                    </div>
+                `;
+            });
+            document.getElementById('optionsContainer').innerHTML = optionsHTML;
+            document.getElementById('nextBtn').disabled = true;
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === quizQuestions.length - 1 ? 'Finish Quiz' : 'Next Question';
+        }
+
+        function selectOption(selectedIndex) {
+            let currentQuestion = quizQuestions[currentQuestionIndex];
+            currentQuestion.userAnswer = selectedIndex;
+
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'wrong');
+            });
+
+            let isCorrect = validateAnswer(selectedIndex, currentQuestion.correctAnswer);
+
+            if (isCorrect) {
+                document.getElementById(`option${selectedIndex}`).classList.add('correct');
+                score++;
+            } else {
+                document.getElementById(`option${selectedIndex}`).classList.add('wrong');
+                document.getElementById(`option${currentQuestion.correctAnswer}`).classList.add('correct');
+            }
+
+            document.getElementById('scoreDisplay').textContent = `Score: ${score}`;
+            document.getElementById('nextBtn').disabled = false;
+
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+        }
+
+        // Validate user answer - Returns Boolean (true/false)
+        function validateAnswer(userAnswer, correctAnswer) {
+            return userAnswer === correctAnswer;
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizQuestions.length) {
+                displayQuestion();
+                updateProgress();
+            } else {
+                showResults();
+            }
+        }
+
+        function updateProgress() {
+            let progress = (currentQuestionIndex / quizQuestions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showResults() {
+            quizCompleted = true;
+            document.getElementById('quizCard').style.display = 'none';
+            document.getElementById('resultsCard').style.display = 'block';
+
+            let percentage = Math.round((score / quizQuestions.length) * 100);
+            document.getElementById('finalScore').textContent = percentage + '%';
+
+            let message = '';
+            if (percentage >= 80) message = 'Excellent! You are a quiz master!';
+            else if (percentage >= 60) message = 'Good job! Keep practicing!';
+            else if (percentage >= 40) message = 'Not bad! Room for improvement.';
+            else message = 'Keep studying! You can do better!';
+            document.getElementById('resultMessage').textContent = message;
+
+            displayDetailedResults();
+            document.getElementById('progressBar').style.width = '100%';
+        }
+
+        function displayDetailedResults() {
+            let detailsHTML = '<h3>Detailed Results:</h3>';
+            quizQuestions.forEach((q, index) => {
+                let isCorrect = validateAnswer(q.userAnswer, q.correctAnswer);
+                let statusClass = isCorrect ? 'result-correct' : 'result-wrong';
+                let statusIcon = isCorrect ? '✅' : '❌';
+
+                detailsHTML += `
+                    <div class="result-item ${statusClass}">
+                        <p><strong>Q${index + 1}:</strong> ${q.question}</p>
+                        <p>Your Answer: ${q.options[q.userAnswer]} ${statusIcon}</p>
+                        ${!isCorrect ? `<p>Correct Answer: ${q.options[q.correctAnswer]}</p>` : ''}
+                    </div>
+                `;
+            });
+            document.getElementById('resultsDetails').innerHTML = detailsHTML;
+        }
+
+        function restartQuiz() {
+            initQuiz();
+        }
+
+        // Initialize quiz on page load
+        initQuiz();
+
+        // ============================================
+        // PROJECT 3: E-COMMERCE SHOPPING CART
+        // Demonstrating: Arrays, Objects, Array Methods
+        // ============================================
+
+        // Products Array - stores all available products
+        let products = [
+            { id: 1, name: "Laptop", price: 45000, image: "💻", category: "Electronics" },
+            { id: 2, name: "Smartphone", price: 25000, image: "📱", category: "Electronics" },
+            { id: 3, name: "Headphones", price: 2500, image: "🎧", category: "Electronics" },
+            { id: 4, name: "T-Shirt", price: 599, image: "👕", category: "Fashion" },
+            { id: 5, name: "Sneakers", price: 3500, image: "👟", category: "Fashion" },
+            { id: 6, name: "Backpack", price: 1200, image: "🎒", category: "Accessories" }
+        ];
+
+        // Cart Array - stores items added to cart
+        let cart = [];
+
+        // Display all products
+        function displayProducts() {
+            let productsGrid = document.getElementById('productsGrid');
+            productsGrid.innerHTML = '';
+
+            products.forEach(product => {
+                productsGrid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-image">${product.image}</div>
+                        <h3>${product.name}</h3>
+                        <p class="product-category">${product.category}</p>
+                        <p class="product-price">₹${product.price.toLocaleString()}</p>
+                        <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Add item to cart
+        function addToCart(productId) {
+            // Find product using find() method
+            let product = products.find(p => p.id === productId);
+
+            // Check if item already in cart
+            let existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;  // Increase quantity
+            } else {
+                // Add new item to cart array using push()
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+
+            updateCartDisplay();
+            alert(`${product.name} added to cart!`);
+        }
+
+        // Remove item from cart
+        function removeFromCart(productId) {
+            // Filter out the item using filter() method
+            cart = cart.filter(item => item.id !== productId);
+            updateCartDisplay();
+        }
+
+        // Update item quantity
+        function updateQuantity(productId, change) {
+            let item = cart.find(item => item.id === productId);
+
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            let cartItemsDiv = document.getElementById('cartItems');
+            let cartSummary = document.getElementById('cartSummary');
+            let cartCount = document.getElementById('cartCount');
+
+            // Calculate total items using reduce()
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p><em>Your cart is empty</em></p>';
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            let cartHTML = '';
+            cart.forEach(item => {
+                cartHTML += `
+                    <div class="cart-item">
+                        <span class="cart-item-image">${item.image}</span>
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <p>₹${item.price.toLocaleString()} each</p>
+                        </div>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <p class="cart-item-total">₹${(item.price * item.quantity).toLocaleString()}</p>
+                        <span class="remove-item" onclick="removeFromCart(${item.id})">✕</span>
+                    </div>
+                `;
+            });
+
+            cartItemsDiv.innerHTML = cartHTML;
+
+            // Calculate totals using reduce()
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let tax = subtotal * 0.18;
+            let total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `₹${subtotal.toLocaleString()}`;
+            document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('cartTotal').textContent = `₹${total.toFixed(2)}`;
+
+            cartSummary.style.display = 'block';
+        }
+
+        // Checkout function
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            total = total + (total * 0.18);
+
+            alert(`Order placed successfully!\nTotal Amount: ₹${total.toFixed(2)}\nThank you for shopping!`);
+            cart = [];
+            updateCartDisplay();
+        }
+
+        // Clear cart
+        function clearCart() {
+            cart = [];
+            updateCartDisplay();
+        }
+
+        // Initialize products on page load
+        displayProducts();
+
+        // ============================================
+        // PROJECT 4: ONLINE FOOD ORDERING SYSTEM V2
+        // Demonstrating: String, Number, Array, Boolean
+        // Restaurant Menu Style
+        // ============================================
+
+        // Menu Items Array
+        let menuItems = [
+            { id: 1, name: "Margherita Pizza", price: 299, image: "🍕", category: "Pizza" },
+            { id: 2, name: "Pepperoni Pizza", price: 349, image: "🍕", category: "Pizza" },
+            { id: 3, name: "Veg Burger", price: 149, image: "🍔", category: "Burger" },
+            { id: 4, name: "Chicken Burger", price: 199, image: "🍔", category: "Burger" },
+            { id: 5, name: "French Fries", price: 99, image: "🍟", category: "Sides" },
+            { id: 6, name: "Cold Coffee", price: 129, image: "🥤", category: "Drinks" }
+        ];
+
+        // Food Order Object
+        let foodOrder = {
+            restaurantName: "Tasty Bites",      // String
+            orderNumber: 5001,                   // Number
+            items: [],                           // Array
+            totalPrice: 0,                       // Number
+            isDelivered: false                   // Boolean
+        };
+
+        // Display Menu Items
+        function displayMenu() {
+            let menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = '';
+
+            menuItems.forEach(item => {
+                menuGrid.innerHTML += `
+                    <div class="menu-item">
+                        <div class="menu-item-image">${item.image}</div>
+                        <div class="menu-item-info">
+                            <h4>${item.name}</h4>
+                            <span class="menu-category">${item.category}</span>
+                            <p class="menu-price">₹${item.price}</p>
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="addToFoodOrder(${item.id})">+</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Add item to food order
+        function addToFoodOrder(itemId) {
+            let item = menuItems.find(m => m.id === itemId);
+            let existingItem = foodOrder.items.find(i => i.id === itemId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                foodOrder.items.push({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    image: item.image,
+                    quantity: 1
+                });
+            }
+
+            foodOrder.totalPrice += item.price;
+            updateFoodOrderDisplay();
+        }
+
+        // Remove item from food order
+        function removeFromFoodOrder(itemId) {
+            let item = foodOrder.items.find(i => i.id === itemId);
+            if (item) {
+                foodOrder.totalPrice -= item.price * item.quantity;
+                foodOrder.items = foodOrder.items.filter(i => i.id !== itemId);
+                updateFoodOrderDisplay();
+            }
+        }
+
+        // Update food order quantity
+        function updateFoodQuantity(itemId, change) {
+            let item = foodOrder.items.find(i => i.id === itemId);
+            if (item) {
+                item.quantity += change;
+                foodOrder.totalPrice += change * item.price;
+
+                if (item.quantity <= 0) {
+                    removeFromFoodOrder(itemId);
+                } else {
+                    updateFoodOrderDisplay();
+                }
+            }
+        }
+
+        // Update food order display
+        function updateFoodOrderDisplay() {
+            let orderItemsDiv = document.getElementById('foodOrderItems');
+            let orderCount = document.getElementById('foodOrderCount');
+            let totalItems = foodOrder.items.reduce((sum, item) => sum + item.quantity, 0);
+            orderCount.textContent = totalItems;
+
+            if (foodOrder.items.length === 0) {
+                orderItemsDiv.innerHTML = '<p class="empty-order">No items in order</p>';
+                document.getElementById('foodOrderSummary').style.display = 'none';
+                return;
+            }
+
+            let orderHTML = '';
+            foodOrder.items.forEach(item => {
+                orderHTML += `
+                    <div class="food-order-item">
+                        <span>${item.image}</span>
+                        <div class="food-item-info">
+                            <strong>${item.name}</strong>
+                            <small>₹${item.price} x ${item.quantity}</small>
+                        </div>
+                        <div class="food-qty-controls">
+                            <button onclick="updateFoodQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateFoodQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <span class="food-item-total">₹${item.price * item.quantity}</span>
+                    </div>
+                `;
+            });
+
+            orderItemsDiv.innerHTML = orderHTML;
+            document.getElementById('foodTotalPrice').textContent = `₹${foodOrder.totalPrice}`;
+            document.getElementById('foodOrderSummary').style.display = 'block';
+        }
+
+        // Display food order details
+        function displayFoodOrderDetails() {
+            let statusClass = foodOrder.isDelivered ? 'status-delivered' : 'status-pending';
+            let statusText = foodOrder.isDelivered ? '✅ Delivered' : '⏳ Pending';
+
+            let detailsHTML = `
+                <div class="food-order-details">
+                    <p><strong>Restaurant (String):</strong> ${foodOrder.restaurantName}</p>
+                    <p><strong>Order # (Number):</strong> ${foodOrder.orderNumber}</p>
+                    <p><strong>Items (Array):</strong> ${foodOrder.items.length} items</p>
+                    <p><strong>Total (Number):</strong> ₹${foodOrder.totalPrice}</p>
+                    <p><strong>Status (Boolean):</strong> <span class="${statusClass}">${statusText}</span></p>
+                </div>
+            `;
+            document.getElementById('foodOrderDetails').innerHTML = detailsHTML;
+            document.getElementById('foodOrderDetails').style.display = 'block';
+        }
+
+        // Mark food order as delivered
+        function markFoodDelivered() {
+            if (!foodOrder.isDelivered && foodOrder.items.length > 0) {
+                foodOrder.isDelivered = true;
+                displayFoodOrderDetails();
+                alert('🎉 Order delivered successfully!');
+            } else if (foodOrder.items.length === 0) {
+                alert('Please add items to your order first!');
+            } else {
+                alert('Order already delivered!');
+            }
+        }
+
+        // Place food order
+        function placeFoodOrder() {
+            if (foodOrder.items.length === 0) {
+                alert('Please add items to your order!');
+                return;
+            }
+
+            alert(`Order #${foodOrder.orderNumber} placed!\nTotal: ₹${foodOrder.totalPrice}\nThank you for ordering from ${foodOrder.restaurantName}!`);
+            displayFoodOrderDetails();
+        }
+
+        // Reset food order
+        function resetFoodOrder() {
+            foodOrder = {
+                restaurantName: "Tasty Bites",
+                orderNumber: Math.floor(5000 + Math.random() * 1000),
+                items: [],
+                totalPrice: 0,
+                isDelivered: false
+            };
+            updateFoodOrderDisplay();
+            document.getElementById('foodOrderDetails').style.display = 'none';
+        }
+
+        // Initialize menu on page load
+        displayMenu();
+
+        // ============================================
+        // PROJECT 5: STUDENT GRADE CALCULATOR
+        // Demonstrating: String, Number, Array, Conditionals
+        // ============================================
+
+        // Student Object
+        let student = {
+            name: "",                    // String
+            subjects: [],                // Array of objects
+            totalMarks: 0,               // Number
+            average: 0,                  // Number
+            grade: "",                   // String
+            isPassed: false              // Boolean
+        };
+
+        // Calculate Grade Function
+        function calculateGrade() {
+            let name = document.getElementById('studentName').value;
+
+            // Get marks from inputs (Array)
+            let marks = [
+                { subject: "Math", marks: parseInt(document.getElementById('mark1').value) || 0 },
+                { subject: "Science", marks: parseInt(document.getElementById('mark2').value) || 0 },
+                { subject: "English", marks: parseInt(document.getElementById('mark3').value) || 0 },
+                { subject: "History", marks: parseInt(document.getElementById('mark4').value) || 0 },
+                { subject: "Computer", marks: parseInt(document.getElementById('mark5').value) || 0 }
+            ];
+
+            // Validate inputs
+            if (!name) {
+                alert('Please enter student name!');
+                return;
+            }
+
+            let hasMarks = marks.some(m => m.marks > 0);
+            if (!hasMarks) {
+                alert('Please enter marks for at least one subject!');
+                return;
+            }
+
+            // Calculate total using reduce()
+            let total = marks.reduce((sum, item) => sum + item.marks, 0);
+
+            // Calculate average
+            let validSubjects = marks.filter(m => m.marks > 0).length;
+            let average = total / validSubjects;
+
+            // Determine grade using conditionals
+            let grade = "";
+            if (average >= 90) {
+                grade = "A";
+            } else if (average >= 80) {
+                grade = "B";
+            } else if (average >= 70) {
+                grade = "C";
+            } else if (average >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            // Update student object
+            student = {
+                name: name,
+                subjects: marks,
+                totalMarks: total,
+                average: average,
+                grade: grade,
+                isPassed: average >= 60
+            };
+
+            // Display result
+            displayGradeReport();
+        }
+
+        // Display Grade Report
+        function displayGradeReport() {
+            let gradeClass = getGradeClass(student.grade);
+            let passStatus = student.isPassed ?
+                '<span class="status-delivered">✅ PASSED</span>' :
+                '<span class="status-pending">❌ FAILED</span>';
+
+            let subjectsHTML = student.subjects
+                .filter(s => s.marks > 0)
+                .map(s => `
+                    <div class="subject-row">
+                        <span>${s.subject}</span>
+                        <span class="subject-marks">${s.marks}/100</span>
+                    </div>
+                `).join('');
+
+            let reportHTML = `
+                <div class="student-info">
+                    <h3>${student.name}</h3>
+                    <div class="grade-badge ${gradeClass}">Grade: ${student.grade}</div>
+                </div>
+
+                <div class="marks-breakdown">
+                    <h4>Subject-wise Marks (Array):</h4>
+                    ${subjectsHTML}
+                </div>
+
+                <div class="grade-summary">
+                    <div class="summary-item">
+                        <span>Total Marks (Number):</span>
+                        <strong>${student.totalMarks}</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Average (Number):</span>
+                        <strong>${student.average.toFixed(2)}%</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Grade (String):</span>
+                        <strong class="${gradeClass}">${student.grade}</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Status (Boolean):</span>
+                        ${passStatus}
+                    </div>
+                </div>
+
+                <div class="grade-scale">
+                    <h4>Grade Scale:</h4>
+                    <div class="scale-items">
+                        <span class="scale-item grade-a">A: ≥90</span>
+                        <span class="scale-item grade-b">B: ≥80</span>
+                        <span class="scale-item grade-c">C: ≥70</span>
+                        <span class="scale-item grade-d">D: ≥60</span>
+                        <span class="scale-item grade-f">F: <60</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('gradeReport').innerHTML = reportHTML;
+            document.getElementById('gradeResultCard').style.display = 'block';
+        }
+
+        // Get grade class for styling
+        function getGradeClass(grade) {
+            switch(grade) {
+                case 'A': return 'grade-a';
+                case 'B': return 'grade-b';
+                case 'C': return 'grade-c';
+                case 'D': return 'grade-d';
+                default: return 'grade-f';
+            }
+        }
+
+        // Reset Grade Calculator
+        function resetGradeCalculator() {
+            document.getElementById('studentName').value = '';
+            document.getElementById('mark1').value = '';
+            document.getElementById('mark2').value = '';
+            document.getElementById('mark3').value = '';
+            document.getElementById('mark4').value = '';
+            document.getElementById('mark5').value = '';
+            document.getElementById('gradeResultCard').style.display = 'none';
+
+            student = {
+                name: "",
+                subjects: [],
+                totalMarks: 0,
+                average: 0,
+                grade: "",
+                isPassed: false
+            };
+        }
+
+        // ============================================
+        // PROJECT 6: SIMPLE INTEREST CALCULATOR
+        // Demonstrating: Numbers, Arithmetic, Functions
+        // ============================================
+
+        // Simple Interest Object
+        let siData = {
+            principal: 0,       // Number
+            rate: 0,            // Number
+            time: 0,            // Number
+            interest: 0,        // Number
+            totalAmount: 0      // Number
+        };
+
+        // Calculate Simple Interest from form inputs
+        function calculateSI() {
+            let P = parseFloat(document.getElementById('principal').value);
+            let R = parseFloat(document.getElementById('rate').value);
+            let T = parseFloat(document.getElementById('time').value);
+
+            // Validate inputs
+            if (isNaN(P) || isNaN(R) || isNaN(T) || P <= 0 || R <= 0 || T <= 0) {
+                alert('Please enter valid positive values for all fields!');
+                return;
+            }
+
+            // Calculate SI using formula: SI = (P × R × T) / 100
+            let SI = (P * R * T) / 100;
+            let totalAmount = P + SI;
+
+            // Update siData object
+            siData = {
+                principal: P,
+                rate: R,
+                time: T,
+                interest: SI,
+                totalAmount: totalAmount
+            };
+
+            // Display result
+            displaySIResult();
+        }
+
+        // Calculate using prompt() and alert() - Bonus feature
+        function calculateWithPrompt() {
+            // Get inputs using prompt()
+            let P = parseFloat(prompt("Enter Principal Amount (₹):"));
+            if (isNaN(P) || P <= 0) {
+                alert("Invalid principal amount!");
+                return;
+            }
+
+            let R = parseFloat(prompt("Enter Rate of Interest (%):"));
+            if (isNaN(R) || R <= 0) {
+                alert("Invalid rate!");
+                return;
+            }
+
+            let T = parseFloat(prompt("Enter Time Period (Years):"));
+            if (isNaN(T) || T <= 0) {
+                alert("Invalid time period!");
+                return;
+            }
+
+            // Calculate SI
+            let SI = (P * R * T) / 100;
+            let totalAmount = P + SI;
+
+            // Update form fields
+            document.getElementById('principal').value = P;
+            document.getElementById('rate').value = R;
+            document.getElementById('time').value = T;
+
+            // Update siData
+            siData = {
+                principal: P,
+                rate: R,
+                time: T,
+                interest: SI,
+                totalAmount: totalAmount
+            };
+
+            // Show result using alert()
+            alert(
+                `📊 SIMPLE INTEREST CALCULATION\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `Principal: ₹${P.toLocaleString()}\n` +
+                `Rate: ${R}%\n` +
+                `Time: ${T} years\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `Simple Interest: ₹${SI.toFixed(2)}\n` +
+                `Total Amount: ₹${totalAmount.toFixed(2)}`
+            );
+
+            // Also display on page
+            displaySIResult();
+        }
+
+        // Display SI Result on page
+        function displaySIResult() {
+            let resultHTML = `
+                <div class="si-result-grid">
+                    <div class="si-result-item">
+                        <span class="si-label">Principal (P)</span>
+                        <span class="si-value">₹${siData.principal.toLocaleString()}</span>
+                    </div>
+                    <div class="si-result-item">
+                        <span class="si-label">Rate (R)</span>
+                        <span class="si-value">${siData.rate}%</span>
+                    </div>
+                    <div class="si-result-item">
+                        <span class="si-label">Time (T)</span>
+                        <span class="si-value">${siData.time} Years</span>
+                    </div>
+                </div>
+
+                <div class="si-calculation">
+                    <p class="si-formula">SI = (${siData.principal} × ${siData.rate} × ${siData.time}) / 100</p>
+                    <p class="si-formula">SI = ${(siData.principal * siData.rate * siData.time).toLocaleString()} / 100</p>
+                </div>
+
+                <div class="si-final-result">
+                    <div class="si-interest">
+                        <span>Simple Interest</span>
+                        <strong>₹${siData.interest.toFixed(2)}</strong>
+                    </div>
+                    <div class="si-total">
+                        <span>Total Amount Payable</span>
+                        <strong>₹${siData.totalAmount.toFixed(2)}</strong>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('siResult').innerHTML = resultHTML;
+            document.getElementById('siResultCard').style.display = 'block';
+        }
+
+        // Reset SI Calculator
+        function resetSICalculator() {
+            document.getElementById('principal').value = '';
+            document.getElementById('rate').value = '';
+            document.getElementById('time').value = '';
+            document.getElementById('siResultCard').style.display = 'none';
+
+            siData = {
+                principal: 0,
+                rate: 0,
+                time: 0,
+                interest: 0,
+                totalAmount: 0
+            };
+        }
+    </script>
+</body>
+</html>
